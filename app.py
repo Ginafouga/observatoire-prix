@@ -17,7 +17,7 @@ SEUILS = {
 }
 
 # 3. BARRE LATÉRALE : AUTHENTIFICATION (Amélioration "Sécurité")
-st.sidebar.title("🔐 Accès Restreint")
+st.sidebar.title(" Accès Restreint")
 st.sidebar.markdown(f"**Application :** fouga-fouga-georgine-24g2137")
 st.sidebar.markdown("---")
 utilisateur = st.sidebar.text_input("Identifiant")
@@ -32,7 +32,7 @@ else:
     st.sidebar.info("Identifiants de test : admin / 1234")
 
 st.sidebar.markdown("---")
-menu = st.sidebar.selectbox("Menu Principal", ["🏠 Accueil", "📝 Collecte des données", "📊 Analyse Graphique"])
+menu = st.sidebar.selectbox("Menu Principal", [" Accueil", "Collecte des données", "Analyse Graphique"])
 
 # 4. LOGIQUE DE CHARGEMENT DES DONNÉES
 def charger_donnees():
@@ -56,7 +56,7 @@ elif menu == " Collecte des données":
     st.header("Formulaire de Saisie")
     
     if not est_connecte:
-        st.error("🚫 Accès refusé. Vous devez être connecté pour saisir des données.")
+        st.error("Accès refusé. Vous devez être connecté pour saisir des données.")
         st.warning("Veuillez entrer vos identifiants dans la barre latérale à gauche.")
     else:
         with st.form("form_saisie"):
@@ -70,7 +70,7 @@ elif menu == " Collecte des données":
 
             # --- LOGIQUE D'ALERTE (Amélioration) ---
             if prix > SEUILS.get(produit, 10000) and prix > 0:
-                st.warning(f"⚠️ ALERTE : Le prix de {prix} FCFA est anormalement élevé (Seuil : {SEUILS[produit]} FCFA) !")
+                st.warning(f"ALERTE : Le prix de {prix} FCFA est anormalement élevé (Seuil : {SEUILS[produit]} FCFA) !")
 
             bouton_valider = st.form_submit_button("Enregistrer la donnée")
 
