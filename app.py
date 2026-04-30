@@ -3,6 +3,9 @@ import pandas as pd
 import plotly.express as px
 import os
 from datetime import datetime
+
+#1. CONFIGURATION DE LA PAGE
+st.set_page_config(page_title="Observatoire - GEORGINE FOUGA - 24G2137", layout="wide")
 # 2. SEUILS D'ALERTE
 SEUILS = {
     "Riz (1kg)": 800,
@@ -28,7 +31,7 @@ if 'vue_publique' not in st.session_state:
 # --- PAGE D'ACCUEIL / LOGIN ---
 if not st.session_state['authentifie'] and not st.session_state['vue_publique']:
     st.title("🏙️ Observatoire Urbain des Prix")
-    st.subheader("Étudiante : Georgine Fouga | Matricule : 24G2137")
+    
     
     col1, col2 = st.columns(2)
     
