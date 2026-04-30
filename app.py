@@ -84,7 +84,7 @@ if st.sidebar.button(" Déconnexion / Retour Accueil"):
 # --- LOGIQUE DES PAGES ---
 
 if menu == " Collecte des données":
-    st.header(" Saisie de nouveaux relevés (Admin)")
+    st.header(" Saisie de nouveaux relevés ")
     with st.form("form_saisie"):
         col_1, col_2 = st.columns(2)
         with col_1:
