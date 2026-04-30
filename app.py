@@ -37,12 +37,12 @@ if not st.session_state['authentifie'] and not st.session_state['vue_publique']:
     col1, col2 = st.columns(2)
     
     with col1:
-        st.info("###  Espace Administration (Accès Professeur)")
-        # Menus déroulants pour faciliter la connexion du professeur
+        st.info("###  Espace Administration ")
+        # Menus déroulants pour faciliter la connexion
         user_select = st.selectbox("Choisir l'identifiant", ["---", "admin"])
         pwd_select = st.selectbox("Choisir le mot de passe", ["---", "1234"])
         
-        if st.button("S'authentifier et accéder à l'administration"):
+        if st.button("Connexion"):
             if user_select == "admin" and pwd_select == "1234":
                 st.session_state['authentifie'] = True
                 st.rerun()
