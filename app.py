@@ -30,13 +30,13 @@ if 'vue_publique' not in st.session_state:
 
 # --- PAGE D'ACCUEIL / LOGIN ---
 if not st.session_state['authentifie'] and not st.session_state['vue_publique']:
-    st.title("🏙️ Observatoire Urbain des Prix")
+    st.title(" Observatoire Urbain des Prix")
     
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.info("### 🔐 Espace Administration")
+        st.info("### Espace Administration")
         with st.form("login_form"):
             user = st.text_input("Identifiant")
             pwd = st.text_input("Mot de passe", type="password")
@@ -48,9 +48,9 @@ if not st.session_state['authentifie'] and not st.session_state['vue_publique']:
                     st.error("Identifiants incorrects.")
 
     with col2:
-        st.success("### 📊 Rapport Public")
+        st.success("### Rapport Public")
         st.write("Vous pouvez consulter les analyses graphiques sans vous connecter.")
-        if st.button("Consulter les graphiques maintenant ➡️"):
+        if st.button("Consulter les graphiques maintenant "):
             st.session_state['vue_publique'] = True
             st.rerun()
     st.stop()
@@ -59,10 +59,10 @@ if not st.session_state['authentifie'] and not st.session_state['vue_publique']:
 st.sidebar.title("Navigation")
 if st.session_state['authentifie']:
     st.sidebar.success("Mode : Administrateur")
-    options = ["📝 Collecte des données", "📊 Analyse Graphique"]
+    options = [" Collecte des données", " Analyse Graphique"]
 else:
     st.sidebar.warning("Mode : Consultation Publique")
-    options = ["📊 Analyse Graphique"]
+    options = ["Analyse Graphique"]
 
 menu = st.sidebar.selectbox("Menu", options)
 
@@ -73,8 +73,8 @@ if st.sidebar.button("Retour à l'accueil / Déconnexion"):
 
 # --- CONTENU DES PAGES ---
 
-if menu == "📝 Collecte des données":
-    st.header("📝 Saisie de nouveaux relevés")
+if menu == " Collecte des données":
+    st.header("Saisie de nouveaux relevés")
     with st.form("form_saisie"):
         p = st.selectbox("Produit", list(SEUILS.keys()))
         pr = st.number_input("Prix (FCFA)", min_value=0)
@@ -90,8 +90,8 @@ if menu == "📝 Collecte des données":
             df.to_csv("prix_data.csv", index=False)
             st.success("Donnée ajoutée !")
 
-elif menu == "📊 Analyse Graphique":
-    st.header("📈 Analyse des tendances des prix")
+elif menu == "Analyse Graphique":
+    st.header(" Analyse des tendances des prix")
     if df.empty:
         st.warning("Aucune donnée à afficher.")
     else:
